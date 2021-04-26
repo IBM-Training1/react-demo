@@ -1,5 +1,6 @@
 import{useState} from "react";
 import axios from "axios";
+import Userlist from "../userlist/userlist";
 
 function Userform(){
 const[userform, setUserform ]=useState({
@@ -7,6 +8,7 @@ const[userform, setUserform ]=useState({
     mobileNumber:7777777777,
     email:"abc@gmail.com"
 })
+const [users, setUsers]=useState([{name:"Abhilasha",mobileNumber:9876711123, email:"abhilasha@gmail.com"}]);
     return(
         <div>
             <input value={userform.name} name='name' onChange= {updateState}></input>
@@ -14,6 +16,7 @@ const[userform, setUserform ]=useState({
             <input value={userform.email} name='email' onChange= {updateState}></input>
             
             <button onClick={save}>Save</button>
+            <Userlist usersProp={users}></Userlist>
             
         </div>
     )
